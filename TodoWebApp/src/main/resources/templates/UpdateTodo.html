@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Todo Page</title>
+  <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+  <h1>Update Todo</h1>
+  <form th:action="@{/updateTodo}" method="post">
+    <input type="hidden" name="id" th:value="${todoToUpdate.id}">
+    <input type="text" name="description" th:value="${todoToUpdate.description}" placeholder="Description" required>
+    <input type="date" name="targetDate" th:value="${todoToUpdate.targetDate}" required>
+    <label for="done">Is Done?</label>
+    <input type="checkbox" name="done" th:checked="${todoToUpdate.done}">
+    <button type="submit" style="background-color: green; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">
+      Update Todo
+    </button>
+  </form>
+  <a href="/Todo">Go back to Todo list</a>
+</div>
+</body>
+</html>

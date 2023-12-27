@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List Todo Page</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+      margin-top: 30px;
+    }
+
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    button.delete-btn {
+      background-color: #dc3545;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button.delete-btn:hover {
+      background-color: #c82333;
+    }
+
+    button.add-btn {
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button.add-btn:hover {
+      background-color: #0056b3;
+    }
+
+    button.update-btn {
+      background-color: #28a745;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button.update-btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+<div>
+  <div th:replace="fragments/navbar"></div>
+  <h1>Your Todos</h1>
+  <table>
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>Description</th>
+      <th>Target Date</th>
+      <th>Is Done?</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="todo : ${todos}">
+      <td th:text="${todo.id}"></td>
+      <td th:text="${todo.description}"></td>
+      <td th:text="${todo.targetDate}"></td>
+      <td th:text="${todo.isDone ? 'Completed' : 'Pending'}"></td>
+      <td>
+        <form th:action="@{/deleteTodo}" method="post" style="display: inline-block; margin-right: 5px;">
+          <input type="hidden" name="id" th:value="${todo.id}">
+          <button type="submit" class="delete-btn">Delete</button>
+        </form>
+        <form th:action="@{/updateTodo}" method="get" style="display: inline-block;">
+          <input type="hidden" name="id" th:value="${todo.id}">
+          <button type="submit" class="update-btn">Update</button>
+        </form>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <button type="submit" class="add-btn">
+    <a href="addTodopage" style="color: white; text-decoration: none;">Add Todo</a>
+  </button>
+</div>
+
+</body>
+</html>

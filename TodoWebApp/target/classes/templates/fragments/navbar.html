@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <style>
+
+       nav {
+    background-color: #007bff;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+/* Style for the logout button */
+.logout {
+    background-color: #ffc107;
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.logout:hover {
+    background-color: #ffa000;
+}
+    </style>
+</head>
+<body>
+<nav>
+  <a href="home">Home</a>
+  <a href="Todo">Todo</a>
+  </button>
+  <button onclick="window.location.href='/backToWelcome'" style="background-color: #ffc107; color: black; padding: 10px; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">
+    Log Out
+  </button>
+</nav>
+</body>
+</html>

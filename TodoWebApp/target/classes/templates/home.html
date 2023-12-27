@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        div {
+            margin-top: 20px;
+        }
+
+        .info-container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="fragments/navbar"></div>
+<div style="text-align: center; padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <h1>Welcome to our Todo-List Page</h1>
+    <div><a href="Todo">Manage</a> your todos</div>
+</div>
+
+<div class="info-container">
+    <h3>Purpose</h3>
+    <p>This is a simple Java application that enables users to log in and manage their todo lists.</p>
+    <p>The application allows users to view and interact with their todos, helping them stay organized and manage tasks efficiently.</p>
+    <p>Feel free to explore the features and make the most out of your todo management experience!</p>
+</div>
+</body>
+</html>
+
