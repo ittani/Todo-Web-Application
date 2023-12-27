@@ -18,7 +18,7 @@ This is a simple Todo Web Application implemented in Java. It allows users to cr
 - Dependencies: thymeleaf, spring security, and web
 
 ### Installation
-1. Clone the repository: `git clone https://github.com/your-username/Todo-Web-Application.git`
+1. Clone the repository: `git clone https://github.com/ittani/Todo-Web-Application/tree/java`
 2. Navigate to the project directory: `cd Todo-Web-Application`
 
 ### Examples
